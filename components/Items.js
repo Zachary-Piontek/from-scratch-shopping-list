@@ -18,7 +18,7 @@ export function itemList({ item, handleUpdate }) {
     // console.log(item);
     const li = document.createElement('li');
     li.textContent = `Buy ${item.item} and get ${item.quantity} of them.`;
-
+    
     const boughtItem = document.createElement('input');
     boughtItem.classList.add('check');
     boughtItem.type = 'checkbox';
@@ -26,8 +26,12 @@ export function itemList({ item, handleUpdate }) {
     boughtItem.addEventListener('change', () => {
         handleUpdate(item);
     });
+    
+    
+    const deleteButton = document.createElement('button');
+    deleteButton.textContent = '␡';
 
-    li.append(boughtItem);
+    li.append(boughtItem, deleteButton);
 
     return li;
 }
