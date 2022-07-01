@@ -25,7 +25,7 @@ async function handleSignOut() {
 
 async function handleAdd(item, quantity) {
     // console.log(item, quantity);
-    const itemsList = { item, quantity };
+    const itemsList = { item, quantity, user_id: user.id };
     const data = await addItem(itemsList);
 
 
@@ -36,7 +36,7 @@ async function handleAdd(item, quantity) {
 
 async function handleUpdate(item) {
     item = !item;
-    const index = item.indexOf(item);
+    const index = items.indexOf(item);
     item[index] = await updateItem(item);
     display();
 }
