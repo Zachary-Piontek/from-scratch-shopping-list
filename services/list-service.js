@@ -6,11 +6,21 @@ export async function addItem(item) {
         .insert(item)
         .single();
 
-    return response;
+    return response.data;
 }
 
 export async function allItems() {
     const response = await client.from('list').select();
-    console.log(response);
+    // console.log(response);
+    return response.data;
+}
+
+export async function updateItem(item) {
+    const response = await client
+        .from('list')
+        .update(item)
+        .match({ id: item.id })
+        .single();
+
     return response.data;
 }

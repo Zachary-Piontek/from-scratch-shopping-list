@@ -1,4 +1,23 @@
-main {
+
+
+ul {
     display: grid;
     justify-content: center;
+}
+
+form {
+    display: grid;
+    justify-content: center;
+    text-align: center;
+    max-height: 150px;
+    margin-bottom: 50px;
+}
+
+li {
+    display: grid;
+    margin-bottom: 5px;
+}
+
+label {
+    margin-bottom: 5px;
 }

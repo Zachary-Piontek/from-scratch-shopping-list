@@ -5,7 +5,8 @@ export default function createShoppingForm(form, { handleAdd }) {
         
         const data = new FormData(form);
 
-        handleAdd(data.get('item'), data.get('quantity'));
+        handleAdd(data.get('item'), data.get('quantity')); 
+        // user_id: user.id);
     });
     return () => { };
 }
