@@ -3,6 +3,7 @@ import { protectPage } from './utils.js';
 import createUser from './components/User.js';
 import createShoppingForm from './components/ShoppingForm.js';
 import { addItem, allItems } from './services/list-service.js';
+// import { createItem } from './components/Items.js';
 
 // State
 let user = null;
@@ -13,8 +14,8 @@ async function handlePageLoad() {
     user = getUser();
     protectPage(user);
 
-    items = await allItems();
-    console.log(items); 
+    const data = await allItems();
+    console.log(data); 
     display();
 }
 
@@ -26,6 +27,7 @@ async function handleAdd(item, quantity) {
     // console.log(item, quantity);
     const itemsList = { item, quantity };
     const data = await addItem(itemsList);
+
 
     items.push(data);
 
@@ -40,9 +42,12 @@ const User = createUser(
 
 const ShoppingForm = createShoppingForm(document.getElementById('add-item-form'), { handleAdd });
 
+// const Items = createItem(document.getElementById('list-of-items'));
+
 function display() {
     User({ user });
     ShoppingForm();
+    // Items({ items });
 }
 
 handlePageLoad();
