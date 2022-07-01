@@ -10,9 +10,7 @@ export async function addItem(item) {
 }
 
 export async function allItems() {
-    const response = await client
-        .from('list')
-        .select();
-
-    return response;
+    const response = await client.from('list').select();
+    console.log(response);
+    return response.data;
 }

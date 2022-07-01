@@ -3,7 +3,7 @@ import { protectPage } from './utils.js';
 import createUser from './components/User.js';
 import createShoppingForm from './components/ShoppingForm.js';
 import { addItem, allItems } from './services/list-service.js';
-// import { createItem } from './components/Items.js';
+import createItems from './components/Items.js';
 
 // State
 let user = null;
@@ -15,6 +15,7 @@ async function handlePageLoad() {
     protectPage(user);
 
     const data = await allItems();
+    items = data;
     console.log(data); 
     display();
 }
@@ -42,12 +43,12 @@ const User = createUser(
 
 const ShoppingForm = createShoppingForm(document.getElementById('add-item-form'), { handleAdd });
 
-// const Items = createItem(document.getElementById('list-of-items'));
+const Items = createItems(document.getElementById('list-of-items'));
 
 function display() {
     User({ user });
     ShoppingForm();
-    // Items({ items });
+    Items({ items });
 }
 
 handlePageLoad();
