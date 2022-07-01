@@ -20,3 +20,22 @@ li {
 label {
     margin-bottom: 5px;
 }
+
+#list-of-items .check {
+    background-color: solid green;
+    background: greenyellow;
+    color: red;
+    margin-right: 15px;
+}
+
+#list-of-items .check:after {
+    border: solid green;
+    margin-right: 15px;
+}
+
+.check {
+    background-color: solid green;
+    background: greenyellow;
+    color: red;
+    margin-right: 15px;
+}

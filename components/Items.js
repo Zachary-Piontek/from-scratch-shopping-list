@@ -1,5 +1,5 @@
 
-export default function createItems(root, { handleUpdate }) {
+export default function createItems(root, { handleUpdate, handleDelete }) {
     return ({ items }) => {
         root.innerHTML = '';
 
@@ -8,13 +8,14 @@ export default function createItems(root, { handleUpdate }) {
             const li = itemList({
                 item,
                 handleUpdate,
+                handleDelete,
             });
             root.append(li);
         }
     };
 }
 
-export function itemList({ item, handleUpdate }) {
+export function itemList({ item, handleUpdate, handleDelete }) {
     // console.log(item);
     const li = document.createElement('li');
     li.textContent = `Buy ${item.item} and get ${item.quantity} of them.`;
@@ -22,7 +23,7 @@ export function itemList({ item, handleUpdate }) {
     const boughtItem = document.createElement('input');
     boughtItem.classList.add('check');
     boughtItem.type = 'checkbox';
-    boughtItem.checked = item;
+    // boughtItem.checked = item;
     boughtItem.addEventListener('change', () => {
         handleUpdate(item);
     });
@@ -30,6 +31,10 @@ export function itemList({ item, handleUpdate }) {
     
     const deleteButton = document.createElement('button');
     deleteButton.textContent = '␡';
+    deleteButton.classList.add('delete-button');
+    deleteButton.addEventListener('click', () => {
+        handleDelete(item);
+    });
 
     li.append(boughtItem, deleteButton);
 

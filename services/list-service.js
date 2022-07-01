@@ -24,3 +24,13 @@ export async function updateItem(item) {
 
     return response.data;
 }
+
+export async function deleteItem(item) {
+    const response = await client
+        .from('list')
+        .delete()
+        .match({ id: item.id })
+        .single();
+
+    return response.data;
+}
