@@ -1,0 +1,47 @@
+
+
+ul {
+    display: grid;
+    justify-content: center;
+}
+
+form {
+    display: grid;
+    justify-content: center;
+    text-align: center;
+    max-height: 150px;
+    margin-bottom: 50px;
+}
+
+li {
+    margin-bottom: 5px;
+}
+
+
+
+label {
+    margin-bottom: 5px;
+}
+
+#list-of-items .check {
+    background-color: solid green;
+    background: greenyellow;
+    color: red;
+    margin-right: 15px;
+}
+
+#list-of-items .check:after {
+    border: solid green;
+    margin-right: 15px;
+}
+
+.check {
+    background-color: solid green;
+    background: greenyellow;
+    color: red;
+    margin-right: 15px;
+}
+
+#item-style {
+    background: wheat;
+}
